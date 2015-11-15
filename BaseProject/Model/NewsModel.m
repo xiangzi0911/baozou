@@ -44,7 +44,13 @@
 }
 @end
 
+@implementation NewsSectionsDetailModel
 
++ (NSDictionary *)objectClassInArray{
+    return @{@"articles":[NewsHotDetailModel class]};
+}
+
+@end
 
 
 

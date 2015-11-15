@@ -16,7 +16,7 @@
 /** 获取分区列表 */
 + (id)getSectionsList:(void(^)(NewsSectionsModel *model , NSError *error))complete;
 /** 通过分区的Id获取分区的信息 */
-+ (id)getSectionWithId:(NSNumber *)Id completionHandle:(void(^)(NewsHotDetailModel *model , NSError *error))complete;
++ (id)getSectionWithId:(NSNumber *)Id completionHandle:(void(^)(NewsSectionsDetailModel *model , NSError *error))complete;
 
 
 @end

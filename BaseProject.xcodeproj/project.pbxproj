@@ -32,6 +32,8 @@
 		21C572C41BF6C54B003C956B /* SectionsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C572C31BF6C54B003C956B /* SectionsViewModel.m */; };
 		21C572C71BF6D635003C956B /* SecionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C572C61BF6D635003C956B /* SecionListViewController.m */; };
 		21C572CA1BF6D775003C956B /* SectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C572C91BF6D775003C956B /* SectionCell.m */; };
+		21C572CD1BF8519E003C956B /* SectionDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C572CC1BF8519E003C956B /* SectionDetailViewModel.m */; };
+		21C572D01BF85872003C956B /* SectionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C572CF1BF85872003C956B /* SectionDetailViewController.m */; };
 		21D2633F1BF42408005F0FC0 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D2633E1BF42408005F0FC0 /* LeftViewController.m */; };
 		21DB8D7E1BF089E800BEC846 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DB8D7D1BF089E800BEC846 /* DetailViewController.m */; };
 		3804CE511BD758F10046C8C8 /* AppDelegate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3804CE4A1BD758F10046C8C8 /* AppDelegate+Category.m */; };
@@ -130,6 +132,10 @@
 		21C572C61BF6D635003C956B /* SecionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecionListViewController.m; sourceTree = "<group>"; };
 		21C572C81BF6D775003C956B /* SectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionCell.h; sourceTree = "<group>"; };
 		21C572C91BF6D775003C956B /* SectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionCell.m; sourceTree = "<group>"; };
+		21C572CB1BF8519E003C956B /* SectionDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionDetailViewModel.h; sourceTree = "<group>"; };
+		21C572CC1BF8519E003C956B /* SectionDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionDetailViewModel.m; sourceTree = "<group>"; };
+		21C572CE1BF85872003C956B /* SectionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionDetailViewController.h; sourceTree = "<group>"; };
+		21C572CF1BF85872003C956B /* SectionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionDetailViewController.m; sourceTree = "<group>"; };
 		21D2633D1BF42408005F0FC0 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		21D2633E1BF42408005F0FC0 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		21DB8D7C1BF089E800BEC846 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = ../ViewModel/DetailViewController.h; sourceTree = "<group>"; };
@@ -577,6 +583,8 @@
 				21B3DAB51BF4C4DE00319C7C /* HotViewController.m */,
 				21C572C51BF6D635003C956B /* SecionListViewController.h */,
 				21C572C61BF6D635003C956B /* SecionListViewController.m */,
+				21C572CE1BF85872003C956B /* SectionDetailViewController.h */,
+				21C572CF1BF85872003C956B /* SectionDetailViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -592,6 +600,8 @@
 				21B3DAAC1BF4BC0E00319C7C /* HotViewModel.m */,
 				21C572C21BF6C54B003C956B /* SectionsViewModel.h */,
 				21C572C31BF6C54B003C956B /* SectionsViewModel.m */,
+				21C572CB1BF8519E003C956B /* SectionDetailViewModel.h */,
+				21C572CC1BF8519E003C956B /* SectionDetailViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -784,6 +794,7 @@
 				3886C0BE1BD74AFE0014E661 /* BaseNetManager.m in Sources */,
 				21C572C71BF6D635003C956B /* SecionListViewController.m in Sources */,
 				3804CE541BD758F10046C8C8 /* NSString+QRCode.m in Sources */,
+				21C572CD1BF8519E003C956B /* SectionDetailViewModel.m in Sources */,
 				21B3DAB61BF4C4DE00319C7C /* HotViewController.m in Sources */,
 				3885C8FA1BE8E96A009441EA /* PSCollectionViewCell.m in Sources */,
 				3804CE531BD758F10046C8C8 /* NSString+PJR.m in Sources */,
@@ -805,6 +816,7 @@
 				3885C8FB1BE8E96A009441EA /* README.md in Sources */,
 				21DB8D7E1BF089E800BEC846 /* DetailViewController.m in Sources */,
 				3886C0C11BD74B090014E661 /* BaseModel.m in Sources */,
+				21C572D01BF85872003C956B /* SectionDetailViewController.m in Sources */,
 				3886C0981BD748830014E661 /* main.m in Sources */,
 				21D2633F1BF42408005F0FC0 /* LeftViewController.m in Sources */,
 				3804CE521BD758F10046C8C8 /* NSObject+Common.m in Sources */,

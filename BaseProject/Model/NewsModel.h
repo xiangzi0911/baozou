@@ -109,7 +109,13 @@
 @property (nonatomic, strong)NSString* thumbnail;
 @end
 
+@interface NewsSectionsDetailModel : BaseModel
 
+@property (nonatomic, strong) NSArray *articles;
+@property (nonatomic, strong) NewsSectionsDataModel *section;
+@property (nonatomic, assign) NSInteger timestamp;
+
+@end
 
 
 

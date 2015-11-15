@@ -1,29 +1,42 @@
 //
-//  HotViewController.m
+//  SectionDetailViewController.m
 //  BaseProject
 //
-//  Created by apple-jd40 on 15/11/12.
+//  Created by apple-jd40 on 15/11/15.
 //  Copyright © 2015年 Tarena. All rights reserved.
 //
 
-#import "HotViewController.h"
-#import "HotViewModel.h"
+#import "SectionDetailViewController.h"
+#import "SectionDetailViewModel.h"
 #import "HotListCell.h"
-#import "Factory.h"
 #import "DetailViewController.h"
 
-@interface HotViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface SectionDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) HotViewModel *hotVM;
+@property (nonatomic, strong) SectionDetailViewModel *sdVM;
 @end
 
-@implementation HotViewController
-- (HotViewModel *)hotVM{
-    if (_hotVM == nil) {
-        _hotVM = [HotViewModel new];
+@implementation SectionDetailViewController
+
+- (NSNumber *)Id{
+    if (_Id==nil) {
+        _Id = [NSNumber new];
     }
-    return _hotVM;
+    return _Id;
 }
+- (NSString *)sectionName {
+    if(_sectionName == nil) {
+        _sectionName = [[NSString alloc] init];
+    }
+    return _sectionName;
+}
+- (SectionDetailViewModel *)sdVM{
+    if (_sdVM == nil) {
+        _sdVM = [SectionDetailViewModel new];
+    }
+    return _sdVM;
+}
+
 - (UITableView *)tableView{
     if (_tableView == nil) {
         _tableView = [[UITableView alloc]init];
@@ -34,46 +47,26 @@
             make.edges.mas_equalTo(0);
         }];
         [_tableView registerClass:[HotListCell class] forCellReuseIdentifier:@"HotCell"];
-
+        
     }
     return _tableView;
 }
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
-    self.title = @"排行榜";
+    self.title = self.sectionName;
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self.hotVM refreshDataCompleteHandle:^(NSError *error) {
+        [self.sdVM getDataWithId:self.Id FromNetCompleteHandle:^(NSError *error) {
             [_tableView.header endRefreshing];
             [_tableView reloadData];
         }];
     }];
     [_tableView.header beginRefreshing];
-    /**
-     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-     [btn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-     [btn setImage:[UIImage imageNamed:@"back2"] forState:UIControlStateHighlighted];
-     btn.frame = CGRectMake(0, 0, 30, 30);
-     [btn bk_addEventHandler:^(id sender) {
-     [vc.navigationController popViewControllerAnimated:YES];
-     } forControlEvents:UIControlEventTouchUpInside];
-     UIBarButtonItem *menuItem=[[UIBarButtonItem alloc] initWithCustomView:btn];
-     //使用弹簧控件缩小菜单按钮和边缘距离
-     UIBarButtonItem *spaceItem=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-     spaceItem.width = -6;
-     vc.navigationItem.leftBarButtonItems = @[spaceItem,menuItem];
-     */
-    [Factory addSideMenuBackItemToVC:self];
-
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.hotVM.rowNumber;
+    return self.sdVM.rowNumber;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
@@ -82,10 +75,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HotListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HotCell" ];
-    [cell.imv setImageWithURL:[NSURL URLWithString:[self.hotVM imageURLStringForRow:indexPath.section]]];
-    cell.titleLb.text    = [self.hotVM titleForRow:indexPath.section];
-    cell.sectionLb.text  = [self.hotVM sectionNameForRow:indexPath.section];
-    cell.hitcountLb.text = [self.hotVM hitForRow:indexPath.section];
+    [cell.imv setImageWithURL:[self.sdVM imageURLStringForRow:indexPath.section]];
+    cell.titleLb.text    = [self.sdVM titleForRow:indexPath.section];
+    cell.sectionLb.text  = [self.sdVM sectionNameForRow:indexPath.section];
+    cell.hitcountLb.text = [self.sdVM hitForRow:indexPath.section];
     
     return cell;
 }
@@ -100,14 +93,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     DetailViewController *dvc = [DetailViewController new];
-    dvc.url = [self.hotVM shareURLForRow:indexPath.section];
+    dvc.url = [self.sdVM shareURLForRow:indexPath.section];
     [self.navigationController pushViewController:dvc animated:YES];
 }
 
 
 
 
+
+
+
+
+
+
 @end
+
+
+
+
 
 
 

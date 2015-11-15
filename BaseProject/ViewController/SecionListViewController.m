@@ -10,6 +10,7 @@
 #import "SectionsViewModel.h"
 #import "SectionCell.h"
 #import "Factory.h"
+#import "SectionDetailViewController.h"
 
 
 @interface SecionListViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -73,7 +74,6 @@
     SectionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SectionCell"];
     cell.imv = [UIImageView new];
     [cell.imv setImageWithURL:[self.sectionVM imageURLForRow:indexPath.section]];
-    //NSURL *ur = [self.sectionVM imageURLForRow:indexPath.section];
     cell.descLb.text = [self.sectionVM descSectionForRow:indexPath.section];
     cell.nameLb.text = [self.sectionVM sectionNameForRow:indexPath.section];
     
@@ -90,9 +90,10 @@
 //跳转
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSNumber *Id = [self.sectionVM IdForRow:indexPath.section];
-    
-    
+    SectionDetailViewController *vc = [SectionDetailViewController new];
+    vc.Id = [self.sectionVM IdForRow:indexPath.section];
+    vc.sectionName = [self.sectionVM sectionNameForRow:indexPath.section];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

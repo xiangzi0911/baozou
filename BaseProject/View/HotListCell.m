@@ -26,7 +26,7 @@
 - (UILabel *)titleLb {
     if(_titleLb == nil) {
         _titleLb = [[UILabel alloc] init];
-        _titleLb.numberOfLines = 0;
+        _titleLb.numberOfLines = 2;
         _titleLb.font = [UIFont systemFontOfSize:18];
         [self.contentView addSubview:_titleLb];
         [_titleLb mas_makeConstraints:^(MASConstraintMaker *make) {

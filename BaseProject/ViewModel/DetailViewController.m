@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"---详情---";
     [Factory addBackItemToVC:self];
     self.view.backgroundColor = [UIColor whiteColor];
     UIWebView *webview = [[UIWebView alloc]init];

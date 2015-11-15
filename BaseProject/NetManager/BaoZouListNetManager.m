@@ -43,10 +43,10 @@
     }];
 }
 /** 通过分区的Id获取分区的信息 */
-+ (id)getSectionWithId:(NSNumber *)Id completionHandle:(void(^)(NewsHotDetailModel *model , NSError *error))complete{
++ (id)getSectionWithId:(NSNumber *)Id completionHandle:(void(^)(NewsSectionsDetailModel *model , NSError *error))complete{
     NSString *path = [NSString stringWithFormat:@"http://daily.ibaozou.com/api/2/section/%@",Id];
     return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-        complete([NewsHotDetailModel objectWithKeyValues:responseObj] , error);
+        complete([NewsSectionsDetailModel objectWithKeyValues:responseObj] , error);
     }];
 }
 
